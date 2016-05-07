@@ -11,7 +11,7 @@ exports.example = function (req, res) {
             sentiments.analyze(tweet.text, function(data){
 
             	if (data.aggregate.score != 0) {
-            		tweetsAnalized.push({data:data, tweet: tweet.text})
+            		tweetsAnalized.push({analysis:data, tweet: tweet})
             	}
 
                 counter++
