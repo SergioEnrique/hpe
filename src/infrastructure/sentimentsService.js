@@ -1,14 +1,11 @@
-var havenondemand = require('havenondemand')
-var config = require("../../config")
-var client = new havenondemand.HODClient(config.heavenapikey, "v1")
+var sentiments = require('../application/sentiments')
 
 exports.example = function (req, res) {
 
-	var data = {'text' : 'I love your mom'}
+	var text = 'I love a blue car'
 
-	client.call('analyzesentiment', data, function(err, resp, body){
-		//console.log(resp)
-		res.send(JSON.stringify(body))
+	sentiments.analyze(text, function(data){
+		res.send(JSON.stringify(data))
 	})
 
 }
