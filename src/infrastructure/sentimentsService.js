@@ -16,7 +16,7 @@ exports.example = function (req, res) {
 
                 counter++
                 if (counter == tweets.length) {
-                    res.send(JSON.stringify(tweetsAnalized))
+                    res.json(tweetsAnalized)
                 }
 
             })
