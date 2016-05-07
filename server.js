@@ -15,7 +15,7 @@ app.use(morgan("dev"))
 app.use(express.static(path.join(__dirname, "public")))
 
 // Routes
-app.use("/", require("./src/presenter/router.js"))
+app.use("/", require("./src/presenter/router"))
 
 // Start server
 app.listen(port)
