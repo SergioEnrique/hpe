@@ -4,6 +4,7 @@
   "dependencies": {
     "body-parser": "^1.15.1",
     "bower": "^1.7.9",
+    "cors": "^2.7.1",
     "express": "^4.13.4",
     "havenondemand": "^1.1.3",
     "mongoose": "^4.4.15",
