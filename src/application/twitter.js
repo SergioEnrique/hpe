@@ -23,6 +23,7 @@ var config      = require('../../config');
 
 exports.tweets2 = function getSearchTweets (number, search, cb){
     T.get('search/tweets', { q: search, count: number }, function(err, data, response) {
-          return cb(data)
+        //console.log(data.statuses)
+        return cb(data.statuses)
     })
 }
