@@ -11,6 +11,7 @@ var config      = require('../../config');
 
      stream.on('tweet', function (tweet) {
          allTweets.push(tweet.text);
+         console.log(tweet.text)
          count += 1;
          if (count === number){
              stream.stop();
