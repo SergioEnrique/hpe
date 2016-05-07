@@ -1,11 +1,18 @@
 var sentiments = require('../application/sentiments')
+var twitter = require('../application/twitter')
 
 exports.example = function (req, res) {
 
-	var text = 'I love a blue car'
+	var tweets = twitter.tweets
 
-	sentiments.analyze(text, function(data){
-		res.send(JSON.stringify(data))
+	var counter = 0
+	tweets.forEach(function (tweet) {
+		sentiments.analyze(text, function(data){
+
+			
+			if (true) {}
+			res.send(JSON.stringify(data))
+		})
 	})
 
 }
