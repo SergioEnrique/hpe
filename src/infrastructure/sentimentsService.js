@@ -1,6 +1,6 @@
 var havenondemand = require('havenondemand')
 // var config = require("../../config")
-var client = new havenondemand.HODClient("e3fd654c-b8c8-4c49-a20d-c5df558874a4", "v2")
+var client = new havenondemand.HODClient("e3fd654c-b8c8-4c49-a20d-c5df558874a4", "v1")
 
 exports.example = function (req, res) {
 
