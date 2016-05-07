@@ -1,6 +1,6 @@
 var Twit        = require('twit');
 var config      = require('../../config');
- Twitter shit
+// Twitter shit
  var T = new Twit(config.twit);
 
  exports.tweets =  function getTweets (number, filter, cb){
