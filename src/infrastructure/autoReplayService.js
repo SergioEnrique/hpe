@@ -1,11 +1,11 @@
 var twitter = require('../application/twitter')
 
 exports.reply = function (req, res) {
-    var tweetArray = ['kendalliguori','WRNC_Live' ]
+    var tweetArray = req.body.tweets
         var text = "I freaking love coffee"
         var cont = 0
-        tweetArray.forEach(function(username){
-            twitter.reply(username,'@' + username + text, function(data) {
+        tweetArray.forEach(function(tweet){
+            twitter.reply('@' + tweet.tweet.user.screen_name + ' ' + text, function(data) {
                 console.log(data)                
                 cont++
             
