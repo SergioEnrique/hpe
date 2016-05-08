@@ -9,7 +9,7 @@ var autoReplyService = require('../infrastructure/autoReplayService.js')
 // Create route
 router.get("/sentiments", sentimentsService.example)
 
-router.get('/autoreply', autoReplyService.reply)
+router.post('/autoreply', autoReplyService.reply)
 
 // Export file
 module.exports = router

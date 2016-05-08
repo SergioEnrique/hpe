@@ -86,6 +86,7 @@ blockquote.twitter-tweet a:focus {
 		<div class="row">
 			<div class="col-md-6" style="color:white;">
 				<h2>Pepsi</h2>
+                <!-- Small modal -->
 
 					    <div style="">
 					    	<br>
@@ -159,6 +160,9 @@ blockquote.twitter-tweet a:focus {
 			</div>
 			<div class="col-md-6" style="background-color:white; color:black;">
 				<h2>Pepsi</h2>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                    Target Clients
+                  </button>
 				<div style="margin:0 auto;">
 					<br>
 					<br>
@@ -190,6 +194,37 @@ blockquote.twitter-tweet a:focus {
 					</blockquote>
 				</div>
 
+                
+
+
+
+
+
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Reply to potential clients</h4>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="replytext" id="replytext" value="">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" onclick="replyAll()" class="btn btn-primary">Reply to All</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
 			</div>
 		</div>
 
@@ -203,6 +238,8 @@ blockquote.twitter-tweet a:focus {
 
 	<script src="js/scriptgraficas.js"></script>
 
+	<script src="js/scriptreply.js"></script>
+    
 
 	</body>
 </html>
