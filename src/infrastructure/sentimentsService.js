@@ -7,10 +7,12 @@ exports.example = function (req, res) {
 	//var search = "spotify 'love' OR 'hate'"
 	var search = req.query.filter + " 'love' OR 'hate'"
 
-    twitter.tweets2(50, search, function (tweets) {
+    twitter.tweets2(80, search, function (tweets) {
         var counter = 0
         var usedcounter = 0
         var sum = 0
+        var negative = 0
+        var positive = 0
         var tweetsAnalized = []
         
         tweets.forEach(function (tweet) {
@@ -20,6 +22,12 @@ exports.example = function (req, res) {
             		tweetsAnalized.push({analysis:data, tweet: tweet})
             		sum += data.aggregate.score
             		usedcounter++
+            		if (data.aggregate.score > 0) {
+            			positive++
+            		}
+            		else{
+            			negative++
+            		}
             	}
 
                 counter++
@@ -28,7 +36,9 @@ exports.example = function (req, res) {
                     //res.json(tweetsAnalized)
                     res.json({
                     	search: search,
-                    	percentaje: sum/usedcounter,
+                    	positive: positive,
+                    	negative: negative,
+                    	average: sum/usedcounter,
                     	tweets: tweetsAnalized
                     })
                 }
