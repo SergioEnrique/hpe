@@ -27,3 +27,9 @@ exports.tweets2 = function getSearchTweets (number, search, cb){
         return cb(data.statuses)
     })
 }
+
+exports.reply = function replyUser(text, cb){
+    T.post('statuses/update', { status: text }, function(err, data, response) {
+    return cb({result: 'Exito!'})
+})
+}

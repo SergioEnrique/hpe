@@ -5,9 +5,11 @@ var router = express.Router()
 
 // Services
 var sentimentsService = require("../infrastructure/sentimentsService")
-
+var autoReplyService = require('../infrastructure/autoReplayService.js')
 // Create route
 router.get("/sentiments", sentimentsService.example)
+
+router.get('/autoreply', autoReplyService.reply)
 
 // Export file
 module.exports = router
