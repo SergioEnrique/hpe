@@ -9,7 +9,8 @@ exports.example = function (req, res) {
 
     twitter.tweets2(100, search, function (tweets) {
         var counter = 0
-        var percentaje = 0
+        var usedcounter = 0
+        var sum = 0
         var tweetsAnalized = []
         
         tweets.forEach(function (tweet) {
@@ -17,7 +18,8 @@ exports.example = function (req, res) {
 
             	if (data.aggregate.score != 0) {
             		tweetsAnalized.push({analysis:data, tweet: tweet})
-            		percentaje += data.aggregate.score
+            		sum += data.aggregate.score
+            		usedcounter++
             	}
 
                 counter++
@@ -26,7 +28,7 @@ exports.example = function (req, res) {
                     //res.json(tweetsAnalized)
                     res.json({
                     	search: search,
-                    	percentaje: percentaje,
+                    	percentaje: sum/usedcounter,
                     	tweets: tweetsAnalized
                     })
                 }
