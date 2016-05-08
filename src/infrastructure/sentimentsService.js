@@ -7,7 +7,7 @@ exports.example = function (req, res) {
 	//var search = "spotify 'love' OR 'hate'"
 	var search = req.query.filter + " 'love' OR 'hate'"
 
-    twitter.tweets2(100, search, function (tweets) {
+    twitter.tweets2(50, search, function (tweets) {
         var counter = 0
         var usedcounter = 0
         var sum = 0
