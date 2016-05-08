@@ -1,7 +1,11 @@
 {
-	"name": "hpe",
-	"description": "description",
-	"version": "0.0.1",
-	"licence": "copyright",
-	"private": true
+  "name": "hpe",
+  "description": "description",
+  "version": "0.0.1",
+  "licence": "copyright",
+  "private": true,
+  "dependencies": {
+    "Chart.js": "^2.1.1",
+    "bootstrap": "^3.3.6"
+  }
 }
