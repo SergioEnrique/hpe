@@ -5,7 +5,7 @@ var morgan = require("morgan")
 var path = require("path")
 var cors = require("cors")
 var config = require("./config")
-var jade = require('pug')
+var swig = require('swig')
 
 var app = express()
 
@@ -16,8 +16,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
 
-// Jade engine
-app.set('view engine', 'jade');
+// Swig engine
+app.set('view engine', 'swig');
 
 // Public folder
 app.use(express.static(path.join(__dirname, "public")))
@@ -26,12 +26,12 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use("/", require("./src/presenter/router"))
 
 app.get("/competencias", function(req, res){
-    res.render('competencias');
+    res.send(swig.renderFile('views/competencias.html'))
 });
 
 app.post('/lookUp', function(req, res){
     var competitors = [req.body.competitor1,req.body.competitor2,req.body.competitor3,req.body.competitor4];
-    res.render('lookup', { competitors: competitors});
+    res.send(swig.renderFile('views/lookup.html', { competitors: competitors}));
 });
 
 // Start server
