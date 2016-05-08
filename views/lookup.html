@@ -85,18 +85,84 @@ blockquote.twitter-tweet a:focus {
 		<br>
 		<div class="row">
 			<div class="col-md-6" style="color:white;">
-				<h2 id='name0'>Spotify</h2>
+				<h2>Pepsi</h2>
+                <!-- Small modal -->
 
 					    <div style="">
 					    	<br>
-        					<canvas id="canvas0" style="color:white"></canvas>
+        					<canvas id="canvas" style="color:white"></canvas>
     					</div>
     					<br>
-			    
+			    <script>
+			        var randomScalingFactor = function() {
+			            return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+			        };
+			        var randomColorFactor = function() {
+			            return Math.round(Math.random() * 255);
+			        };
+			        var barChartData = {
+			            labels: ["No", "Yes"],
+			            datasets: [{
+			                backgroundColor: "rgba(255,214,120,1)",
+			                data: [3, 4]
+			            }
+			            /*, {
+			                label: 'Dataset 2',
+			                backgroundColor: "rgba(151,187,205,0.5)",
+			                data: [3, 4]
+			            }, {
+			                label: 'Dataset 3',
+			                backgroundColor: "rgba(151,187,205,0.5)",
+			                data: [2, 3]
+			            }*/
+			            ]
+			        };
+			        window.onload = function() {
+			            var ctx = document.getElementById("canvas").getContext("2d");
+			            window.myBar = new Chart(ctx, {
+			                type: 'bar',
+			                data: barChartData,
+			                options: {
+			                    title:{
+			                        display:true,
+			                        text:"Chart.js Bar Chart - Stacked"
+			                    },
+			                    tooltips: {
+			                        mode: 'label'
+			                    },
+			                    responsive: true,
+			                    scales: {
+			                        xAxes: [{
+			                            stacked: true,
+			                        }],
+			                        yAxes: [{
+			                            stacked: true
+			                        }]
+			                    }
+			                }
+			            });
+			        };
+			        $('#randomizeData').click(function() {
+			            $.each(barChartData.datasets, function(i, dataset) {
+			                //dataset.backgroundColor = 'rgba(' + randomColorFactor() + ',' + randomColorFactor() + ',' + randomColorFactor() + ',.7)';
+			                dataset.backgroundColor = 'rgba(' +255+ ',' + 255 + ',' + 255 + ',0.2)';
+			                dataset.data = [10,-10];
+			            });
+			            window.myBar.update();
+			        });
+			    </script>
+								<!--<span><strong>ATM:</strong></span><span style="color:white;">@name</span>
+								<input type="text" class="form-control" style="width:50%;" placeholder="servicio" name="tweet1" aria-describedby="basic-addon1"/>
+								<br>
+								<button style="display:inline-block"><i class="glyphicon glyphicon-camera" style="font-size:3em;"></i></button>
+								<button class="btn btn-primary" style="margin-left:40%; font-size:1em;display:inline-block"></button>-->
 
 			</div>
 			<div class="col-md-6" style="background-color:white; color:black;">
-				<h2 id='name0'>Spotify</h2>
+				<h2>Pepsi</h2>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                    Target Clients
+                  </button>
 				<div style="margin:0 auto;">
 					<br>
 					<br>
@@ -128,148 +194,38 @@ blockquote.twitter-tweet a:focus {
 					</blockquote>
 				</div>
 
-			</div>
-		</div>
-			<div class="row">
-			<div class="col-md-6" style="color:white;">
-				<h2 id='name1'>AppleMusic</h2>
+                
 
-					    <div style="">
-					    	<br>
-        					<canvas id="canvas1" style="color:white"></canvas>
-    					</div>
-    					<br>
-			    
 
-			</div>
-			<div class="col-md-6" style="background-color:white; color:black;">
-				<h2 id='name1'>AppleMusic</h2>
-				<div style="margin:0 auto;">
-					<br>
-					<br>
-					<blockquote class="twitter-tweet"
-					  data-link-color="#55acee" lang="es">
-					<p lang="en">just setting up my twttr</p>
-					— Jack Dorsey (@jack)
-					<a href="https://twitter.com/jack/status/20">
-					  marzo 21, 2006
-					</a>
-					</blockquote>
-					<br>
-					<blockquote class="twitter-tweet"
-					  data-link-color="#55acee" lang="es">
-					<p lang="en">just setting up my twttr</p>
-					— Jack Dorsey (@jack)
-					<a href="https://twitter.com/jack/status/20">
-					  marzo 21, 2006
-					</a>
-					</blockquote>
-						<br>
-					<blockquote class="twitter-tweet"
-					  data-link-color="#55acee" lang="es">
-					<p lang="en">just setting up my twttr</p>
-					— Jack Dorsey (@jack)
-					<a href="https://twitter.com/jack/status/20">
-					  marzo 21, 2006
-					</a>
-					</blockquote>
-				</div>
+
+
+
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Reply to potential clients</h4>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="replytext" id="replytext" value="">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" onclick="replyAll()" class="btn btn-primary">Reply to All</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
 
 			</div>
-
-			<!--
-			<div class="row">
-			<div class="col-md-6" style="color:white;">
-				<h2 id='name2'>Pepsi</h2>
-
-					    <div style="">
-					    	<br>
-        					<canvas id="canva2" style="color:white"></canvas>
-    					</div>
-    					<br>
-			    
-
-			</div>
-			<div class="col-md-6" style="background-color:white; color:black;">
-				<h2 id='name2'>Pepsi</h2>
-				<div style="margin:0 auto;">
-					<br>
-					<br>
-					<blockquote class="twitter-tweet"
-					  data-link-color="#55acee" lang="es">
-					<p lang="en">just setting up my twttr</p>
-					— Jack Dorsey (@jack)
-					<a href="https://twitter.com/jack/status/20">
-					  marzo 21, 2006
-					</a>
-					</blockquote>
-					<br>
-					<blockquote class="twitter-tweet"
-					  data-link-color="#55acee" lang="es">
-					<p lang="en">just setting up my twttr</p>
-					— Jack Dorsey (@jack)
-					<a href="https://twitter.com/jack/status/20">
-					  marzo 21, 2006
-					</a>
-					</blockquote>
-						<br>
-					<blockquote class="twitter-tweet"
-					  data-link-color="#55acee" lang="es">
-					<p lang="en">just setting up my twttr</p>
-					— Jack Dorsey (@jack)
-					<a href="https://twitter.com/jack/status/20">
-					  marzo 21, 2006
-					</a>
-					</blockquote>
-				</div>
-
-			</div>
-			<div class="row">
-			<div class="col-md-6" style="color:white;">
-				<h2 id='name3'>Pepsi</h2>
-
-					    <div style="">
-					    	<br>
-        					<canvas id="canvas3" style="color:white"></canvas>
-    					</div>
-    					<br>
-			    
-
-			</div>
-			<div class="col-md-6" style="background-color:white; color:black;">
-				<h2 id='name3'>Pepsi</h2>
-				<div style="margin:0 auto;">
-					<br>
-					<br>
-					<blockquote class="twitter-tweet"
-					  data-link-color="#55acee" lang="es">
-					<p lang="en">just setting up my twttr</p>
-					— Jack Dorsey (@jack)
-					<a href="https://twitter.com/jack/status/20">
-					  marzo 21, 2006
-					</a>
-					</blockquote>
-					<br>
-					<blockquote class="twitter-tweet"
-					  data-link-color="#55acee" lang="es">
-					<p lang="en">just setting up my twttr</p>
-					— Jack Dorsey (@jack)
-					<a href="https://twitter.com/jack/status/20">
-					  marzo 21, 2006
-					</a>
-					</blockquote>
-						<br>
-					<blockquote class="twitter-tweet"
-					  data-link-color="#55acee" lang="es">
-					<p lang="en">just setting up my twttr</p>
-					— Jack Dorsey (@jack)
-					<a href="https://twitter.com/jack/status/20">
-					  marzo 21, 2006
-					</a>
-					</blockquote>
-				</div>
-
-			</div>-->
 		</div>
 
 	<script>
@@ -280,9 +236,10 @@ blockquote.twitter-tweet a:focus {
 		];
 	</script>
 
-
 	<script src="js/scriptgraficas.js"></script>
 
+	<script src="js/scriptreply.js"></script>
+    
 
 	</body>
 </html>
