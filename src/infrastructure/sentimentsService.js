@@ -4,19 +4,31 @@ var twitter = require('../application/twitter')
 
 exports.example = function (req, res) {
 
-    twitter.tweets2(100, "spotify 'love' OR 'hate'", function (tweets) {
+	//var search = "spotify 'love' OR 'hate'"
+	var search = req.query.filter
+
+    twitter.tweets2(100, search, function (tweets) {
         var counter = 0
-        tweetsAnalized = []
+        var percentaje = 0
+        var tweetsAnalized = []
+        
         tweets.forEach(function (tweet) {
             sentiments.analyze(tweet.text, function(data){
 
             	if (data.aggregate.score != 0) {
             		tweetsAnalized.push({analysis:data, tweet: tweet})
+            		percentaje += data.aggregate.score
             	}
 
                 counter++
                 if (counter == tweets.length) {
-                    res.json(tweetsAnalized)
+
+                    //res.json(tweetsAnalized)
+                    res.json({
+                    	search: search,
+                    	percentaje: percentaje,
+                    	tweets: tweetsAnalized
+                    })
                 }
 
             })
