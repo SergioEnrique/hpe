@@ -1,0 +1,202 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.1/Chart.min.js"></script>
+
+<style type="text/css">
+	
+	.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+
+	}
+
+	.card{
+		
+		position: relative;
+    	margin: 0.5rem 0 1rem 0;
+    	background-color: #fff;
+    	transition: box-shadow .25s;
+    	border-radius: 2px;
+	}
+
+	blockquote.twitter-tweet {
+  display: inline-block;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 16px;
+  border-color: #eee #ddd #bbb;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  margin: 10px 5px;
+  padding: 0 16px 16px 16px;
+  width: 50%;
+}
+ 
+blockquote.twitter-tweet p {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+}
+ 
+blockquote.twitter-tweet a {
+  color: inherit;
+  font-weight: normal;
+  text-decoration: none;
+  outline: 0 none;
+}
+ 
+blockquote.twitter-tweet a:hover,
+blockquote.twitter-tweet a:focus {
+  text-decoration: underline;
+}
+
+</style>
+
+
+	</head>
+	<body style="">
+		<!--<img src="images/background1.jpg" style="z-index:-1;" class="img-responsive" ></img>-->
+		<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#969390;">
+  			<div class="container">
+  				<ul class="nav navbar-nav navbar-left">
+    			 	<li><a href="#"><img src="images/logo01.png" class="img-responsive" style="height:50px;"></img></a></li>
+    			 </ul>
+    			 <ul class="nav navbar-nav navbar-right">
+    			 	<li><a href="#">Link</a></li>
+    			 	<li><a href="#">Link</a></li>
+    			 	<li><a href="#">Link</a></li>
+    			 </ul>
+    		</div>
+		</nav>
+
+		
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-md-6" style="background-color:rgb(62,119,127); color:white;">
+				
+					    <div style="">
+					    	<br>
+        					<canvas id="canvas" style="color:white"></canvas>
+    					</div>
+    					<br>
+			    <script>
+			        var randomScalingFactor = function() {
+			            return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+			        };
+			        var randomColorFactor = function() {
+			            return Math.round(Math.random() * 255);
+			        };
+			        var barChartData = {
+			            labels: ["No", "Yes"],
+			            datasets: [{
+			                
+			                backgroundColor: "rgba(220,220,220,0.5)",
+			                data: [3, 4]
+			            }
+			            /*, {
+			                label: 'Dataset 2',
+			                backgroundColor: "rgba(151,187,205,0.5)",
+			                data: [3, 4]
+			            }, {
+			                label: 'Dataset 3',
+			                backgroundColor: "rgba(151,187,205,0.5)",
+			                data: [2, 3]
+			            }*/
+			            ]
+			        };
+			        window.onload = function() {
+			            var ctx = document.getElementById("canvas").getContext("2d");
+			            window.myBar = new Chart(ctx, {
+			                type: 'bar',
+			                data: barChartData,
+			                options: {
+			                    title:{
+			                        display:true,
+			                        text:"Chart.js Bar Chart - Stacked"
+			                    },
+			                    tooltips: {
+			                        mode: 'label'
+			                    },
+			                    responsive: true,
+			                    scales: {
+			                        xAxes: [{
+			                            stacked: true,
+			                        }],
+			                        yAxes: [{
+			                            stacked: true
+			                        }]
+			                    }
+			                }
+			            });
+			        };
+			        $('#randomizeData').click(function() {
+			            $.each(barChartData.datasets, function(i, dataset) {
+			                //dataset.backgroundColor = 'rgba(' + randomColorFactor() + ',' + randomColorFactor() + ',' + randomColorFactor() + ',.7)';
+			                dataset.backgroundColor = 'rgba(' +166+ ',' + 161 + ',' + 158 + ',1)';
+			                dataset.data = [10,-10];
+			            });
+			            window.myBar.update();
+			        });
+			    </script>
+								<!--<span><strong>ATM:</strong></span><span style="color:white;">@name</span>
+								<input type="text" class="form-control" style="width:50%;" placeholder="servicio" name="tweet1" aria-describedby="basic-addon1"/>
+								<br>
+								<button style="display:inline-block"><i class="glyphicon glyphicon-camera" style="font-size:3em;"></i></button>
+								<button class="btn btn-primary" style="margin-left:40%; font-size:1em;display:inline-block"></button>-->
+				
+			</div>
+			<div class="col-md-6" style="background-color:white;">
+				
+				<div style="margin:0 auto;">
+					<br>
+					<br>
+					<blockquote class="twitter-tweet"
+					  data-link-color="#55acee" lang="es">
+					<p lang="en">just setting up my twttr</p>
+					— Jack Dorsey (@jack)
+					<a href="https://twitter.com/jack/status/20">
+					  marzo 21, 2006
+					</a>
+					</blockquote>
+					<br>
+					<blockquote class="twitter-tweet"
+					  data-link-color="#55acee" lang="es">
+					<p lang="en">just setting up my twttr</p>
+					— Jack Dorsey (@jack)
+					<a href="https://twitter.com/jack/status/20">
+					  marzo 21, 2006
+					</a>
+					</blockquote>
+						<br>
+					<blockquote class="twitter-tweet"
+					  data-link-color="#55acee" lang="es">
+					<p lang="en">just setting up my twttr</p>
+					— Jack Dorsey (@jack)
+					<a href="https://twitter.com/jack/status/20">
+					  marzo 21, 2006
+					</a>
+					</blockquote>
+				</div>
+				
+			</div>
+		</div>
+			
+			
+			
+			
+
+
+	</body>
+</html>
