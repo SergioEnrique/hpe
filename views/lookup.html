@@ -194,18 +194,14 @@ blockquote.twitter-tweet a:focus {
 		</div>
 
 	<script>
+		var competencias = [
 		{% for item in competitors %}
-
-			var competencias = [
-				"{{item}}",
-			];
-
-			for (var i = competencias.length - 1; i >= 0; i--) {
-				console.log(competencias[i]);
-			}
-
+			"{{item}}",
 		{% endfor %}
+		];
 	</script>
+
+	<script src="js/scriptgraficas.js"></script>
 
 
 	</body>
