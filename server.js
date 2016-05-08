@@ -10,7 +10,7 @@ var swig = require('swig')
 var app = express()
 
 // Config
-var port = 3000
+app.set('port', (process.env.PORT || 5000));
 app.use(morgan("dev"))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
@@ -35,5 +35,5 @@ app.post('/lookUp', function(req, res){
 });
 
 // Start server
-app.listen(port)
+app.listen(app.get('port'))
 console.log("La magia ocurre en http://localhost:" + port)
