@@ -5,7 +5,7 @@ var twitter = require('../application/twitter')
 exports.example = function (req, res) {
 
 	//var search = "spotify 'love' OR 'hate'"
-	var search = req.query.filter
+	var search = req.query.filter + " 'love' OR 'hate'"
 
     twitter.tweets2(100, search, function (tweets) {
         var counter = 0
