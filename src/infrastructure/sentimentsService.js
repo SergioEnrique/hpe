@@ -43,6 +43,8 @@ exports.example = function (req, res) {
                     })
                 }
 
+            }, function () {
+                res.json("error")
             })
         })
     })
